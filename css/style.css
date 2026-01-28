@@ -1,0 +1,149 @@
+:root {
+    /* Cores da V1 (Roxo/Gradiente Vibrante) */
+    --bg-color: #f8faff;
+    --primary-gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+    --text-dark: #1e293b;
+    --text-muted: #64748b;
+    --card-hover-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-dark);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- AVATAR (Correção Definitiva) --- */
+.avatar-container {
+    /* Tamanho fixo e rígido */
+    width: 180px;
+    height: 180px;
+
+    /* Centraliza na tela */
+    margin: 0 auto 1.5rem;
+
+    /* A borda branca agora é feita aqui, não com padding */
+    border: 5px solid white;
+
+    /* O formato redondo */
+    border-radius: 50%;
+
+    /* Sombra para destaque */
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+
+    /* CORTA tudo que passar do círculo */
+    overflow: hidden;
+
+    /* Garante posicionamento */
+    position: relative;
+
+    /* Fix para alguns navegadores (Chrome/Safari) respeitarem a borda redonda na imagem */
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
+}
+
+.profile-avatar {
+    /* Força brutal para anular o Bootstrap */
+    width: 100% !important;
+    height: 100% !important;
+
+    /* Garante que não haja margens escondidas */
+    margin: 0;
+    padding: 0;
+
+    /* O segredo: preenche todo o quadrado imaginário, cortando as sobras */
+    object-fit: cover;
+
+    /* Centraliza o rosto */
+    object-position: center center;
+
+    /* Remove comportamento de linha de texto */
+    display: block;
+}
+
+/* --- CARDS DE LINKS (Estilo V1) --- */
+.link-card {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px; /* Bordas bem arredondadas */
+    padding: 1rem;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    align-items: center;
+}
+
+.link-card:hover {
+    transform: translateY(-2px); /* Efeito de levitação simples */
+    box-shadow: var(--card-hover-shadow);
+    border-color: #cbd5e1;
+}
+
+/* --- ÍCONE DENTRO DO CARD --- */
+.card-icon-box {
+    width: 48px;
+    height: 48px;
+    background: var(--primary-gradient); /* Gradiente Roxo */
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.25rem;
+    flex-shrink: 0;
+    margin-right: 1rem;
+}
+
+.card-title {
+    font-weight: 600;
+    margin-bottom: 0.1rem;
+    color: var(--text-dark);
+}
+
+.card-subtitle {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+/* --- ÍCONES SOCIAIS (Estilo V1) --- */
+.social-btn {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: white;
+    border: 1px solid #e2e8f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    font-size: 1.2rem;
+    transition: all 0.2s;
+    margin: 0 0.5rem;
+    text-decoration: none;
+}
+
+.social-btn:hover {
+    color: #6366f1; /* Fica roxo no hover */
+    border-color: #6366f1;
+    background-color: white;
+    transform: translateY(-2px);
+}
+
+/* --- ANIMAÇÃO --- */
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
